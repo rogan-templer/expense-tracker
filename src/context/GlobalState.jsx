@@ -1,4 +1,5 @@
 import React, { createContext, useReducer } from "react";
+import AppReducer from "./AppReducer";
 
 // Initial State
 // Any global state would go in the object below however for this app will only need the transactions so that calculations can take place in various components
