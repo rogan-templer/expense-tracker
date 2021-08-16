@@ -17,4 +17,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The main tech used in the creation of this website is as follows:
 
-- Frontend: React.js and Tailwindcss.
+- Frontend: React.js.
