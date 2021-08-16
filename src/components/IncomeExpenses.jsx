@@ -18,7 +18,7 @@ function IncomeExpenses() {
 
   const expense = (
     amounts.filter((item) => item < 0).reduce((acc, item) => (acc += item), 0) *
-    -2
+    -1
   ).toFixed(2);
 
   return (
