@@ -23,11 +23,11 @@ function IncomeExpenses() {
 
   return (
     <>
-      <div>
+      <div className="inc-exp-container">
         <h4>Income</h4>
         <p className="money plus">{income}</p>
       </div>
-      <div>
+      <div className="inc-exp-container">
         <h4>Expense</h4>
         <p className="money minus">{expense}</p>
       </div>
