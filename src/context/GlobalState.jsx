@@ -15,7 +15,7 @@ export const GlobalContext = createContext(initialState);
 
 // Provider component
 /**This allows other components to have access to the global state.  They can be wrapped within a provider component that then gives them access to the global state in the form of children.
- * The children are whatever is wrapped in the provider component - in this instance it will be the XXXX components.
+ * The children are whatever is wrapped in the provider component - in this instance it will be the components on App.js.
  */
 
 export const GlobalProvider = ({ children }) => {
