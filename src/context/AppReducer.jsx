@@ -17,3 +17,9 @@ export default (state, action) => {
       return state;
   }
 };
+
+/**
+ * This file is essentially the reduce like in redux.
+ * The delete and add transaction cases here refer to the functions in the globalstate file which are dispatched here to the reducer.
+ * 
+ */
