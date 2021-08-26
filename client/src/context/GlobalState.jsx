@@ -1,5 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
+import axios from "axios";
 
 // Initial State
 // Any global state would go in the object below however for this app will only need the transactions so that calculations can take place in various components
@@ -7,6 +8,8 @@ import AppReducer from "./AppReducer";
 
 const initialState = {
   transactions: [],
+  error: null,
+  loading: true,
 };
 
 // Create context
@@ -23,6 +26,26 @@ export const GlobalProvider = ({ children }) => {
   // console.log("what even is children", children);
 
   // ACTIONS
+  /**
+   * This first action is async as it uses axios which returns a promise
+   */
+
+  async function getTransactions() {
+    try {
+      const res = await axios.get("/api/v1/transactions");
+
+      dispatch({
+        type: "GET_TRANSACTIONS",
+        payload: res.data.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: "TRANSACTION_ERROR",
+        payload: err.response.data.error,
+      });
+    }
+  }
+
   function deleteTransaction(id) {
     dispatch({
       type: "DELETE_TRANSACTION",
@@ -41,6 +64,9 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider
       value={{
         transactions: state.transactions,
+        error: state.error,
+        loading: state.loading,
+        getTransactions,
         deleteTransaction,
         addTransaction,
       }}
