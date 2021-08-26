@@ -12,6 +12,10 @@ const transactions = require("./routes/transactions");
 
 const app = express();
 
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
+
 app.use(express.json()); //allows use of the body parser on the addTransaction request in transactionController.js
 
 app.use("/api/v1/transactions", transactions);
